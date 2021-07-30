@@ -132,3 +132,4 @@ dmypy.json
 CT-0.zip
 CT-23.zip
 MosMedData/*
+lightning_logs/*
