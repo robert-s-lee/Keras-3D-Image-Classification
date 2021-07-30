@@ -1,8 +1,8 @@
-# tensorflow matches Grid.ai grid run --framework tensorflow
-tensorflow==2.2.0
-# lightning matches Grid.ai grid run --framework lightning
-pytorch-lightning==1.2.1
-# the rest don't care
+# tensorflow version matches Grid.ai grid run --framework tensorflow 2.2.0
+tensorflow
+# lightning version matches Grid.ai grid run --framework lightning 1.2.1
+pytorch-lightning
+# the rest don't matter
 requests
 pathlib
 nibabel
