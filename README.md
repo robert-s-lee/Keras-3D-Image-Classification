@@ -23,6 +23,11 @@ python train.py --max_epochs 3
 rm CT-0.zip CT-23.zip
 ```
 
+# Run on Grid
+```bash
+grid run train.py --max_epochs 3
+```
+
 # Git LFS
 more info on enabling [Git LFS](https://git-lfs.github.com/) and paying GitHub 
 
