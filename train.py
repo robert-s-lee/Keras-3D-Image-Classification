@@ -197,17 +197,7 @@ def get_model(width=128, height=128, depth=64):
     model = keras.Model(inputs, outputs, name="3dcnn")
     return model
 
-if __name__ == '__main__':
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--data_dir', type=str, default=os.getcwd())
-    parser.add_argument('--download', type=bool, default=True)
-    parser.add_argument('--max_epochs', type=int, default=100)
-    parser.add_argument('--learning_rate', type=float, default=1e-3)
-    parser.add_argument('--gpus', type=int, default=0)
-    args = parser.parse_args()
-
-    if args.download:
+def download_data():
         """
         ## Downloading the MosMedData: Chest CT Scans with COVID-19 Related Findings
         In this example, we use a subset of the
@@ -217,6 +207,28 @@ if __name__ == '__main__':
         a classifier to predict presence of viral pneumonia.
         Hence, the task is a binary classification problem.
         """
+
+        # Make a directory to store the data.
+        mos_med_data = os.path.join(args.data_dir, "MosMedData/")
+
+        # If the directory exits and there are files in there, then down download again
+        if os.path.isdir(mos_med_data):
+          totalDirs = 0
+          totalFiles = 0
+          for base, dirs, files in os.walk(mos_med_data):
+            print('Searching in : ',base)
+            for directories in dirs:
+              totalDirs += 1
+            for Files in files:
+              totalFiles += 1
+          print(f'{mos_med_data} has dir:{totalDirs} files:{totalFiles}')
+          if totalDirs > 0 and totalFiles > 0:      
+            return
+          else:
+            pass
+
+        # Need to download files  
+        os.makedirs(mos_med_data, exist_ok=True)
 
         # # Download url of normal CT scans.
         url = "https://github.com/hasibzunair/3D-image-classification-tutorial/releases/download/v0.2/CT-0.zip"
@@ -228,16 +240,25 @@ if __name__ == '__main__':
         ct23_zip = os.path.join(args.data_dir, "CT-23.zip")
         keras.utils.get_file(ct23_zip, url)
 
-        # Make a directory to store the data.
-        mos_med_data = os.path.join(args.data_dir, "MosMedData/")
-        os.makedirs(mos_med_data, exist_ok=True)
-
         # Unzip data in the newly created directory.
         with zipfile.ZipFile(ct0_zip, "r") as z_fp:
             z_fp.extractall(mos_med_data)
 
         with zipfile.ZipFile(ct23_zip, "r") as z_fp:
             z_fp.extractall(mos_med_data)
+
+if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--data_dir', type=str, default=os.getcwd())
+    parser.add_argument('--download', type=bool, default=True)
+    parser.add_argument('--max_epochs', type=int, default=100)
+    parser.add_argument('--learning_rate', type=float, default=1e-3)
+    parser.add_argument('--gpus', type=int, default=0)
+    args = parser.parse_args()
+
+    if args.download:
+      download_data()
 
     """
     Let's read the paths of the CT scans from the class directories.
