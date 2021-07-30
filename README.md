@@ -20,15 +20,19 @@ For more information please read the [original tutorial here](https://keras.io/e
 ```
 pip install -r requirements.txt
 python train.py --max_epochs 3
+rm CT-0.zip CT-23.zip
 ```
 
 # Git LFS
-more info on enabling [Git LFS](https://git-lfs.github.com/)
+more info on enabling [Git LFS](https://git-lfs.github.com/) and paying GitHub 
 
-```
+```bash
 brew install git-lfs
 git lfs install
 git lfs track "*.zip"
 git lfs track "*.gz"
+git add .gitattributes
 
+# check the size
+du -sh *
 ```
