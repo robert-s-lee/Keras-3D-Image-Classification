@@ -129,7 +129,6 @@ dmypy.json
 .pyre/
 
 # datafiles
-CT-0.zip
-CT-23.zip
-MosMedData/*
 lightning_logs/*
+*.gz
+*.zip

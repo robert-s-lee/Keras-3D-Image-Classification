@@ -21,3 +21,14 @@ For more information please read the [original tutorial here](https://keras.io/e
 pip install -r requirements.txt
 python train.py --max_epochs 3
 ```
+
+# Git LFS
+more info on enabling [Git LFS](https://git-lfs.github.com/)
+
+```
+brew install git-lfs
+git lfs install
+git lfs track "*.zip"
+git lfs track "*.gz"
+
+```
