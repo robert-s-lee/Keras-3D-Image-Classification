@@ -340,7 +340,7 @@ if __name__ == '__main__':
         "3d_image_classification.h5", save_best_only=True
     )
     early_stopping_cb = keras.callbacks.EarlyStopping(monitor="val_acc", patience=15)
-    tb_callback = tf.keras.callbacks.TensorBoard(log_dir='./lightning_logs/keras', update_freq=1)
+    tb_callback = tf.keras.callbacks.TensorBoard(log_dir='./lightning_logs/keras')
 
 
     # Train the model, doing validation at the end of each epoch

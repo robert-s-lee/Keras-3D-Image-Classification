@@ -25,7 +25,9 @@ rm CT-0.zip CT-23.zip
 
 # Run on Grid
 ```bash
-grid run train.py --max_epochs 3
+grid run --framework tensorflow train.py --max_epochs 3
+grid run --framework lightning train.py --max_epochs 3
+
 ```
 
 # Git LFS
