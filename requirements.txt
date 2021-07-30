@@ -1,3 +1,4 @@
 requests
 pathlib
 nibabel
+scipy

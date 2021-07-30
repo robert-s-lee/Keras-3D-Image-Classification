@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# datafiles
+CT-0.zip
+CT-23.zip
+MosMedData/*

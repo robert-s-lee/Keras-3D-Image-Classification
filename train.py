@@ -204,7 +204,7 @@ if __name__ == '__main__':
     parser.add_argument('--download', type=bool, default=True)
     parser.add_argument('--max_epochs', type=int, default=100)
     parser.add_argument('--learning_rate', type=float, default=1e-3)
-    parser.add_argument('--gpus', type=int, default=None)
+    parser.add_argument('--gpus', type=int, default=0)
     args = parser.parse_args()
 
     if args.download:
